@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Apply the saved theme before first paint (no light-to-dark flash)
+      (function () {
+        try {
+          var t = localStorage.getItem("pennyx-theme") || localStorage.getItem("pennypay-theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          if (t === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>PennyX – Buy and Sell USDT with INR</title>
+    <meta
+      name="description"
+      content="Explore PennyX, a platform for buying and selling USDT with INR through a guided order process. Review transaction details and track your orders."
+    />
+    <meta name="keywords" content="Buy USDT with INR, Sell USDT INR, USDT India, Tether INR, exchange USDT India, PennyX" />
+    <link rel="canonical" href="https://pennyx.in/" />
+    <meta property="og:title" content="PennyX – Buy and Sell USDT with INR" />
+    <meta
+      property="og:description"
+      content="Explore PennyX, a platform for buying and selling USDT with INR through a guided order process. Review transaction details and track your orders."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pennyx.in/" />
+    <meta property="og:site_name" content="PennyX" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PennyX – Buy and Sell USDT with INR" />
+    <meta
+      name="twitter:description"
+      content="Explore PennyX, a platform for buying and selling USDT with INR through a guided order process. Review transaction details and track your orders."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://pennyx.in/#website",
+            "url": "https://pennyx.in/",
+            "name": "PennyX",
+            "description": "Guided platform for buying and selling USDT with INR in India.",
+            "inLanguage": "en-IN"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://pennyx.in/#organization",
+            "name": "PennyX",
+            "url": "https://pennyx.in/",
+            "logo": "https://pennyx.in/favicon.ico",
+            "description": "Digital platform enabling guided USDT and INR exchange with clear order verification."
+          },
+          {
+            "@type": "FinancialProduct",
+            "name": "PennyX USDT Exchange Service",
+            "description": "Buy and sell USDT with INR through a guided order process. Review rates, networks, and instructions before confirming transactions.",
+            "provider": {
+              "@id": "https://pennyx.in/#organization"
+            },
+            "category": "Cryptocurrency Exchange Service",
+            "areaServed": "IN"
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Dx0XKiyY.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C_uW5LVp.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

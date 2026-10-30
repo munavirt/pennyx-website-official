@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    // Apply the saved theme before first paint (no light-to-dark flash)
+    (function () {
+      try {
+        var t = localStorage.getItem("pennyx-theme") || localStorage.getItem("pennypay-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (t === "dark") document.documentElement.classList.add("dark");
+      } catch (e) { }
+    })();
+  </script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>PennyX — Digital finance, made clearer.</title>
+  <meta name="description" content="A clear, guided platform for buying and selling USDT with PennyX." />
+  <meta property="og:title" content="PennyX — Digital finance, made clearer." />
+  <meta property="og:description" content="A clear, guided platform for buying and selling USDT with PennyX." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PennyX — Digital finance, made clearer." />
+  <meta name="twitter:description" content="A clear, guided platform for buying and selling USDT with PennyX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

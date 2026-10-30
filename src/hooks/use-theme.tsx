@@ -1,0 +1,32 @@
+import { useCallback, useEffect, useState } from "react";
+
+type Theme = "light" | "dark";
+const STORAGE_KEY = "pennyx-theme";
+const LEGACY_STORAGE_KEY = "pennypay-theme";
+
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") return "light";
+  const saved =
+    window.localStorage.getItem(STORAGE_KEY) || window.localStorage.getItem(LEGACY_STORAGE_KEY);
+  if (saved === "light" || saved === "dark") return saved;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+export function useTheme() {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
+
+  const toggle = useCallback(() => {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  }, []);
+
+  return { theme, toggle };
+}
+
+/** Inline script string for __root head — applies the theme before paint. */
+export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("pennyx-theme")||localStorage.getItem("pennypay-theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(t==="dark"){document.documentElement.classList.add("dark")}}catch(e){}})();`;
