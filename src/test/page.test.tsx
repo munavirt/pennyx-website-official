@@ -5,11 +5,14 @@ import App from "@/App";
 
 // jsdom has no layout, IntersectionObserver or ResizeObserver; stub what the page touches.
 class NoopObserver {
-  observe() { }
-  unobserve() { }
-  disconnect() { }
+  observe() {}
+  unobserve() {}
+  disconnect() {}
 }
-Object.assign(globalThis, { IntersectionObserver: NoopObserver, ResizeObserver: NoopObserver });
+Object.assign(globalThis, {
+  IntersectionObserver: NoopObserver,
+  ResizeObserver: NoopObserver,
+});
 
 const renderHome = () =>
   render(
@@ -19,37 +22,42 @@ const renderHome = () =>
   );
 
 describe("Home page", () => {
-  it("keeps all ten sections and the footer in the original order", () => {
+  it("keeps the sections in the brief's order and the footer outside main", () => {
     const { container } = renderHome();
-    const ids = [...container.querySelectorAll("main > section")].map((s) => s.id);
-    // Story has no anchor, so its id is empty; the order of the rest must be unchanged.
+    const ids = [...container.querySelectorAll("main > section")].map(
+      (s) => s.id,
+    );
     expect(ids).toEqual([
       "top",
-      "",
-      "platform",
+      "services",
       "how-it-works",
       "walkthrough",
       "why-pennyx",
-      "faq",
+      "networks",
+      "platform",
+      "security",
       "learn",
+      "faq",
       "about",
       "",
     ]);
     expect(container.querySelector("footer")).not.toBeNull();
   });
 
-  it("states both directions in the hero", () => {
+  it("names the buy and sell paths and the hero indicators", () => {
     const { container } = renderHome();
     const hero = container.querySelector("#top")!;
     expect(hero.textContent).toMatch(/buy and sell usdt/i);
-    expect(hero.textContent).toMatch(/Buy · INR → USDT/);
-    expect(hero.textContent).toMatch(/Sell · USDT → payout/);
+    expect(hero.textContent).toMatch(/Clear order details/);
+    expect(hero.textContent).toMatch(/Order status tracking/);
   });
 
   it("uses one verb for the destination and no unfinished labels", () => {
     const { container } = renderHome();
     const text = container.textContent ?? "";
-    expect(text).not.toMatch(/Access PennyX|Explore PennyX|\(soon\)|coming soon/i);
+    expect(text).not.toMatch(
+      /Access PennyX|Explore PennyX|\(soon\)|coming soon/i,
+    );
     expect(text).toMatch(/Open PennyX/);
     expect(text).toMatch(/buying and selling USDT/);
     expect(text).not.toMatch(/purchasing USDT/i);
@@ -61,10 +69,10 @@ describe("Home page", () => {
       matches: query.includes(": reduce"),
       media: query,
       onchange: null,
-      addListener: () => { },
-      removeListener: () => { },
-      addEventListener: () => { },
-      removeEventListener: () => { },
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
       dispatchEvent: () => false,
     })) as typeof window.matchMedia;
     try {

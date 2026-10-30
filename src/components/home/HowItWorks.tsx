@@ -20,17 +20,17 @@ const STEPS = [
   {
     n: "02",
     title: "Review the details",
-    body: "Check the amount, the rate and the pricing before you confirm anything.",
+    body: "Check the amount, the rate and the pricing before you confirm.",
   },
   {
     n: "03",
     title: "Follow the instructions",
-    body: "PennyX gives you the steps for your order and its deadline. Buying and selling have different steps.",
+    body: "Complete the payment or transfer steps shown for your order.",
   },
   {
     n: "04",
     title: "Track your order",
-    body: "Open your account to see where the order stands and whether anything needs your attention.",
+    body: "Check your order status and follow any updates in your PennyX account.",
   },
 ];
 
@@ -56,7 +56,10 @@ export function HowItWorks() {
       duration: 0.8,
       ease: "power3.out",
       stagger: 0.15,
-      scrollTrigger: { trigger: q(".pp-hiw-row")[0] as Element, start: "top 75%" },
+      scrollTrigger: {
+        trigger: q(".pp-hiw-row")[0] as Element,
+        start: "top 75%",
+      },
     });
   });
 
@@ -71,8 +74,8 @@ export function HowItWorks() {
             Four steps, start to finish.
           </h2>
           <p className="mt-5 max-w-xl text-pretty text-[1.0625rem] leading-[1.65] text-muted-foreground">
-            The shape of an order is the same whether you buy or sell. The payment or transfer
-            steps differ, and PennyX shows them as you go.
+            The same order flow applies whether you buy or sell. The payment and
+            transfer steps differ, and PennyX shows the right ones as you go.
           </p>
         </div>
 
@@ -95,7 +98,8 @@ export function HowItWorks() {
           <ol className="relative grid gap-12 pl-8 md:grid-cols-2 md:pl-0 lg:grid-cols-4 lg:gap-8">
             {STEPS.map((s, i) => {
               const Art = ART[i];
-              const offset = i % 2 === 0 ? "lg:-translate-y-3" : "lg:translate-y-3";
+              const offset =
+                i % 2 === 0 ? "lg:-translate-y-3" : "lg:translate-y-3";
               return (
                 <li key={s.n} className="pp-step relative">
                   <RouteNode

@@ -6,7 +6,7 @@
 
 /*
  * PennyX design system.
- * Light: white-dominant, #58d779 accent. Dark: refined charcoal.
+ * Light: white-dominant, #4CD477 accent. Dark: refined charcoal.
  */
 
 @theme inline {
@@ -41,7 +41,7 @@
   --color-ring: var(--ring);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -49,38 +49,31 @@
   --radius: 0.75rem;
   --background: oklch(1 0 0);
   /* #FFFFFF */
-  --foreground: oklch(0.21 0.02 290);
-  /* #19171F */
-  --surface: oklch(0.972 0.006 300);
-  /* #F7F6FA */
+  --foreground: #191923;
+  --surface: #f7f7fa;
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.02 290);
+  --card-foreground: #191923;
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.02 290);
-  --primary: #58d779;
-  /* oklch(0.786 0.174 149.3) */
-  --primary-hover: #43c166;
-  /* oklch(0.72 0.17 149.3) */
-  /* Green used as TEXT on light surfaces: 5.08:1 on white (bright #58d779 is 1.84:1) */
-  --primary-text: #1a7f37;
+  --popover-foreground: #191923;
+  --primary: #4cd477;
+  --primary-hover: #3cc267;
+  /* Green used as TEXT on light surfaces: 5.4:1 on white (bright #4cd477 is about 1.9:1) */
+  --primary-text: #137a40;
   --route-track: var(--border);
   --primary-foreground: #041608;
-  --secondary: oklch(0.972 0.006 300);
-  --secondary-foreground: oklch(0.21 0.02 290);
-  --muted: oklch(0.972 0.006 300);
-  --muted-foreground: oklch(0.5 0.02 295);
-  /* #706B79 */
-  --accent: #58d779;
+  --secondary: #f7f7fa;
+  --secondary-foreground: #191923;
+  --muted: #f7f7fa;
+  --muted-foreground: #707080;
+  --accent: #4cd477;
   --accent-foreground: #041608;
-  --accent-soft: oklch(0.96 0.04 149.3);
-  /* #e0fae4 soft #58d779 tint */
+  --accent-soft: #ecfaf1;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0.005 300);
-  --border: oklch(0.925 0.008 295);
-  /* #E8E5ED */
-  --input: oklch(0.925 0.008 295);
-  --ring: #58d779;
-  --ink: oklch(0.19 0.015 290);
+  --border: #e8e8ef;
+  --input: #e8e8ef;
+  --ring: #4cd477;
+  --ink: #191923;
   /* dark showcase surface */
   --ink-foreground: oklch(0.965 0.008 300);
 
@@ -113,24 +106,21 @@
   --background: oklch(0.185 0.012 290);
   /* #111015 */
   --foreground: oklch(0.965 0.008 300);
-  /* #F6F4FA */
   --surface: oklch(0.21 0.02 290);
-  /* #19171F */
   --card: oklch(0.21 0.02 290);
   --card-foreground: oklch(0.965 0.008 300);
   --popover: oklch(0.21 0.02 290);
   --popover-foreground: oklch(0.965 0.008 300);
-  --primary: #58d779;
-  /* oklch(0.786 0.174 149.3) */
+  --primary: #4cd477;
   --primary-hover: #6fe28d;
-  --primary-text: #58d779;
+  --primary-text: #4cd477;
   --primary-foreground: #041608;
   --secondary: oklch(0.25 0.02 290);
   --secondary-foreground: oklch(0.965 0.008 300);
   --muted: oklch(0.25 0.02 290);
   --muted-foreground: oklch(0.76 0.02 295);
   /* #B5B0C0 */
-  --accent: #58d779;
+  --accent: #4cd477;
   --accent-foreground: #041608;
   --accent-soft: oklch(0.28 0.04 149.3);
   --destructive: oklch(0.704 0.191 22.216);
@@ -138,7 +128,7 @@
   --border: oklch(0.32 0.015 290);
   /* #34303D */
   --input: oklch(0.32 0.015 290);
-  --ring: #58d779;
+  --ring: #4cd477;
   --ink: oklch(0.16 0.01 290);
   --ink-foreground: oklch(0.965 0.008 300);
 

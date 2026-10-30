@@ -8,24 +8,15 @@ const COLS = [
       ["Platform", "#platform"],
       ["How It Works", "#how-it-works"],
       ["Why PennyX", "#why-pennyx"],
+      ["Learn", "#learn"],
       ["FAQ", "#faq"],
-      ["About", "#about"],
     ],
   },
   {
     title: "Company",
     links: [
       ["About", "#about"],
-      ["FAQ", "#faq"],
       ["Open PennyX", APP_URL],
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      ["Terms & conditions", "#top"],
-      ["Privacy policy", "#top"],
-      ["Risk disclosure", "#top"],
     ],
   },
 ];
@@ -33,12 +24,12 @@ const COLS = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:grid-cols-[1fr_1fr] lg:grid-cols-[1.4fr_repeat(2,1fr)]">
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            A clear, guided platform for buying and selling USDT. This website is informational;
-            transactions take place in the PennyX application.
+            A clear, guided platform for buying and selling USDT. This website
+            is informational; transactions take place in the PennyX application.
           </p>
         </div>
         {COLS.map((c) => (
@@ -64,7 +55,10 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-muted-foreground sm:flex-row sm:justify-between sm:px-8">
           <p>© {new Date().getFullYear()} PennyX. All rights reserved.</p>
-          <p>Digital assets carry risk. Values shown on this site are illustrative.</p>
+          <p>
+            Digital assets carry risk. Values shown on this site are
+            illustrative.
+          </p>
         </div>
       </div>
     </footer>

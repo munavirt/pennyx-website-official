@@ -5,6 +5,12 @@ import { useGsap, gsap } from "@/hooks/use-gsap";
 import { HeroScene } from "./HeroScene";
 import { HeroRoute } from "./HeroRoute";
 
+const INDICATORS = [
+  "Clear order details",
+  "Guided transaction process",
+  "Order status tracking",
+] as const;
+
 /**
  * Hero — staggered editorial composition built around the isometric diamond:
  * heading in the top-left corner space, copy and actions in the bottom-left corner space,
@@ -20,22 +26,43 @@ export function Hero() {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from(q(".pp-hero-line"), { yPercent: 100, duration: 0.9, stagger: 0.12 })
       .from(q(".pp-hero-scene"), { y: 24, opacity: 0, duration: 1.0 }, 0.25)
-      .from(q(".ic-b"), { y: 32, opacity: 0, duration: 0.8, stagger: 0.05 }, 0.45)
+      .from(
+        q(".ic-b"),
+        { y: 32, opacity: 0, duration: 0.8, stagger: 0.05 },
+        0.45,
+      )
       .fromTo(
         q(".pp-hero-underline"),
         { scaleX: 0 },
         { scaleX: 1, duration: 0.7, ease: "power2.inOut" },
         0.9,
       )
-      .from(q(".pp-hero-chip"), { x: -12, opacity: 0, duration: 0.5, stagger: 0.1 }, 1.0)
+      .from(
+        q(".pp-hero-chip"),
+        { x: -12, opacity: 0, duration: 0.5, stagger: 0.1 },
+        1.0,
+      )
       .from(q(".pp-hero-sub"), { y: 16, opacity: 0, duration: 0.6 }, 1.05)
       .from(q(".pp-hero-cta"), { y: 12, opacity: 0, duration: 0.5 }, 1.2);
 
     // M3 — scroll depth: the artwork drifts past the heading (desktop only, max 60px)
     if (window.matchMedia("(min-width: 1024px)").matches) {
-      const scrub = { trigger: root, start: "top top", end: "bottom top", scrub: true };
-      gsap.to(q(".pp-hero-depth-scene"), { y: -56, ease: "none", scrollTrigger: scrub });
-      gsap.to(q(".pp-hero-depth-head"), { y: -24, ease: "none", scrollTrigger: scrub });
+      const scrub = {
+        trigger: root,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      };
+      gsap.to(q(".pp-hero-depth-scene"), {
+        y: -56,
+        ease: "none",
+        scrollTrigger: scrub,
+      });
+      gsap.to(q(".pp-hero-depth-head"), {
+        y: -24,
+        ease: "none",
+        scrollTrigger: scrub,
+      });
     }
   });
 
@@ -49,7 +76,9 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2"
-        style={{ background: "linear-gradient(to top, var(--surface), transparent)" }}
+        style={{
+          background: "linear-gradient(to top, var(--surface), transparent)",
+        }}
       />
       <div
         aria-hidden="true"
@@ -62,12 +91,12 @@ export function Hero() {
         <div className="pp-hero-depth-head relative z-10 lg:col-span-7 lg:col-start-1 lg:row-start-1">
           <h1 className="font-display text-[clamp(1.75rem,8.4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-foreground md:text-[clamp(3rem,5.4vw,5.25rem)]">
             <span className="reveal-mask whitespace-nowrap">
-              <span className="pp-hero-line block">Buy and sell USDT,</span>
+              <span className="pp-hero-line block">Buy and sell USDT</span>
             </span>
             <span className="reveal-mask whitespace-nowrap lg:ml-[9%]">
               <span className="pp-hero-line block">
                 <span className="relative inline-block">
-                  made clearer.
+                  with INR.
                   {/* Bright brand green as a 6px underline (passes contrast); the ink text carries the meaning */}
                   <span
                     aria-hidden="true"
@@ -94,19 +123,21 @@ export function Hero() {
         {/* 3 + 4. Direction labels, description, actions — bottom-left corner */}
         <div className="relative z-10 mt-6 max-w-[26rem] lg:col-span-4 lg:col-start-1 lg:row-start-3 lg:mt-0 lg:self-end">
           <div className="mb-5 flex flex-wrap gap-2">
-            <span className="pp-hero-chip inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3.5 py-1.5 text-xs font-medium text-foreground">
-              <span aria-hidden="true" className="h-px w-3 bg-primary" />
-              Buy · INR → USDT
-            </span>
-            <span className="pp-hero-chip inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3.5 py-1.5 text-xs font-medium text-foreground">
-              <span aria-hidden="true" className="h-px w-3 bg-primary" />
-              Sell · USDT → payout
-            </span>
+            {INDICATORS.map((label) => (
+              <span
+                key={label}
+                className="pp-hero-chip inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3.5 py-1.5 text-xs font-medium text-foreground"
+              >
+                <span aria-hidden="true" className="h-px w-3 bg-primary" />
+                {label}
+              </span>
+            ))}
           </div>
 
           <p className="pp-hero-sub text-pretty text-[1.0625rem] leading-[1.6] text-muted-foreground">
-            Whether you're buying or selling, PennyX shows the amount, the rate and the steps
-            before you commit, and keeps your order's status in your account.
+            PennyX helps you exchange USDT through a guided order process.
+            Review the amount, the rate and the instructions before you confirm
+            your transaction.
           </p>
 
           <div className="pp-hero-cta mt-6">
@@ -135,7 +166,8 @@ export function Hero() {
               </a>
             </div>
             <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-              Orders are created and managed in the PennyX app. This site explains how it works.
+              Orders are created and managed in the PennyX app. This site
+              explains how it works.
             </p>
           </div>
         </div>

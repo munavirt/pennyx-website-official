@@ -13,10 +13,11 @@ export function Insights() {
           Learn
         </p>
         <h2 className="text-balance font-display text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em] text-foreground">
-          Know the basics before you send anything.
+          Understand USDT before you get started.
         </h2>
         <p className="mt-5 text-pretty text-[1.0625rem] leading-[1.65] text-muted-foreground">
-          Three short guides to the questions first-time USDT users ask most.
+          Explore helpful guides about stablecoins, blockchain networks and safe
+          transaction practices.
         </p>
       </div>
 

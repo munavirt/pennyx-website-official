@@ -38,7 +38,10 @@ export function FinalCta() {
   });
 
   return (
-    <section ref={ref} className="relative px-5 pb-24 pt-16 sm:px-8 sm:pb-28 sm:pt-20">
+    <section
+      ref={ref}
+      className="relative px-5 pb-24 pt-16 sm:px-8 sm:pb-28 sm:pt-20"
+    >
       <div className="relative mx-auto max-w-6xl">
         {/* Page rail, elbowing into the first curve's left end (desktop) */}
         <div
@@ -73,11 +76,11 @@ export function FinalCta() {
             />
           </svg>
           <h2 className="relative mx-auto max-w-3xl font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
-            Take the next step with PennyX.
+            Ready to get started with PennyX?
           </h2>
           <p className="relative mx-auto mt-6 max-w-lg opacity-80">
-            Explore the platform, understand the process, and find the information you need to get
-            started.
+            Explore the platform, understand the process, and find the
+            information you need to get started.
           </p>
           <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -85,7 +88,10 @@ export function FinalCta() {
               className="group inline-flex items-center gap-2 rounded-full bg-primary-foreground px-7 py-3.5 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
             >
               Open PennyX
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
             </a>
             <a
               href="#how-it-works"

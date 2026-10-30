@@ -84,7 +84,12 @@ export function Showcase() {
       gsap.from(q(".pp-show-band"), {
         y: 40,
         ease: "none",
-        scrollTrigger: { trigger: root, start: "top 95%", end: "top 60%", scrub: true },
+        scrollTrigger: {
+          trigger: root,
+          start: "top 95%",
+          end: "top 60%",
+          scrub: true,
+        },
       });
 
       if (sticky) {
@@ -109,7 +114,10 @@ export function Showcase() {
           duration: 0.6,
           ease: "power3.out",
           stagger: 0.1,
-          scrollTrigger: { trigger: q(".pp-show-scene")[0] as Element, start: "top 75%" },
+          scrollTrigger: {
+            trigger: q(".pp-show-scene")[0] as Element,
+            start: "top 75%",
+          },
         });
       }
     },
@@ -128,11 +136,11 @@ export function Showcase() {
               The platform
             </p>
             <h2 className="text-balance font-display text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[1.04] tracking-[-0.025em]">
-              Everything about an order, in one place.
+              Your transactions, organised in one place.
             </h2>
             <p className="mt-6 max-w-md text-pretty text-[1.0625rem] leading-[1.65] text-ink-foreground/70">
-              Follow a sample purchase from review to status. The figures are examples, not live
-              rates.
+              Follow a sample purchase from review to status. The figures are
+              examples, not live rates.
             </p>
             <a
               href={APP_URL}
@@ -151,7 +159,9 @@ export function Showcase() {
                       className="transition-opacity duration-500"
                       style={{ opacity: stage === i ? 1 : 0.35 }}
                     >
-                      <h3 className="font-display text-2xl font-semibold">{s.title}</h3>
+                      <h3 className="font-display text-2xl font-semibold">
+                        {s.title}
+                      </h3>
                       <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-foreground/65">
                         {s.body}
                       </p>
@@ -168,13 +178,17 @@ export function Showcase() {
                         className="transition-opacity duration-500"
                         style={{ opacity: stage === i ? 1 : 0 }}
                       >
-                        <PanelCard index={i} active={stage === i} barRef={i === 1 ? barRef : undefined} />
+                        <PanelCard
+                          index={i}
+                          active={stage === i}
+                          barRef={i === 1 ? barRef : undefined}
+                        />
                       </div>
                     ))}
                   </div>
                   <figcaption className="mt-4 text-xs leading-relaxed text-ink-foreground/60">
-                    A simplified example of the purchase review screen. Amounts are for
-                    illustration and are not a live rate.
+                    A simplified example of the purchase review screen. Amounts
+                    are for illustration and are not a live rate.
                   </figcaption>
                 </div>
               </figure>
@@ -183,7 +197,9 @@ export function Showcase() {
             <div className="pp-show-scene mt-12 space-y-10">
               {STEPS.map((s, i) => (
                 <div key={s.title} className="pp-show-flow">
-                  <h3 className="font-display text-xl font-semibold">{s.title}</h3>
+                  <h3 className="font-display text-xl font-semibold">
+                    {s.title}
+                  </h3>
                   <p className="mb-5 mt-2 max-w-md text-sm leading-relaxed text-ink-foreground/65">
                     {s.body}
                   </p>
@@ -191,8 +207,8 @@ export function Showcase() {
                 </div>
               ))}
               <p className="text-xs leading-relaxed text-ink-foreground/60">
-                A simplified example of the purchase review screen. Amounts are for illustration
-                and are not a live rate.
+                A simplified example of the purchase review screen. Amounts are
+                for illustration and are not a live rate.
               </p>
             </div>
           )}
